@@ -4,22 +4,52 @@ using UnityEngine;
 
 public class MisileController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed = 3f;
+   
+    private GameObject player;
+    private Rigidbody2D EnemyRb;
     void Start()
     {
-        
+        EnemyRb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-       transform.Translate(Vector2.up * Time.deltaTime * 10);
-            
+
+        Vector2 LookDirection = (player.transform.position - transform.position).normalized;
+        EnemyRb.AddForce(LookDirection * speed);
+        // transform.Translate(Vector2.up * Time.deltaTime * speed);
+
+        //if (transform.position.x > 20)
+        //{
+        //    //transform.Translate(Vector2.right);
+        //}
+        //else if (transform.position.x > -20)
+        //{
+        //    transform.Translate(Vector2.left);
+        //}
+
+        //else if (transform.position.y > 8)
+        //{
+        //    transform.Translate(Vector2.down);
+        //}
+        //else if (transform.position.y < -7)
+        //{
+        //    transform.Translate(Vector2.up);
+        //}
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        //Destroy(collision.gameObject);
+        //Destroy(gameObject);
     }
 }
