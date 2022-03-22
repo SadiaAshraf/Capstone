@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
 
     public GameObject Prefab; //enemyPrefab
-    public float VerticalSpawn = 7;
+    //public float VerticalSpawn = 7;
     public float HorizontalSpawn = 20;
 
    // public GameObject EnemyPrefab;
@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     private Vector2 SpawnMisiles()
     {
         float spawnX = Random.Range(-HorizontalSpawn, HorizontalSpawn);
-        float spawnY = Random.Range(-VerticalSpawn, VerticalSpawn);
+        float spawnY = Random.Range(0, 5);
 
         Vector2 spawnPos = new Vector2(spawnX, spawnY);
         return spawnPos;
