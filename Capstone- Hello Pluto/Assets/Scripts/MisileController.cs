@@ -10,10 +10,12 @@ public class MisileController : MonoBehaviour
     public GameObject player;
     private Rigidbody2D EnemyRb;
     public bool IsPlayerAlive = true;
+    public bool IsGameOver = false;
     void Start()
     {
         EnemyRb = GetComponent<Rigidbody2D>();
-        player = GameObject.Find("Player");
+       // player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -50,16 +52,16 @@ public class MisileController : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
             IsPlayerAlive = false;
+            IsGameOver = true;
         }
-        //Destroy(collision.gameObject);
-        //Destroy(gameObject);
+        
     }
 
     public void  movement()
     {
         if (player != null)
         {
-            Vector2 LookDirection = (player.transform.position - transform.position);
+            Vector2 LookDirection = (player.transform.position - transform.position).normalized;
             EnemyRb.AddForce(LookDirection * speed);
            
         }

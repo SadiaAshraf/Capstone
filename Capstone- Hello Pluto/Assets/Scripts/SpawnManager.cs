@@ -8,6 +8,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject Prefab;
     public float VerticalSpawn = 7;
     public float HorizontalSpawn = 20;
+
+    public MisileController MyMisileController;
+
+ 
     void Start()
     {
         InvokeRepeating("SpawnElements", 2, 2);
@@ -30,6 +34,10 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnElements()
     {
-        Instantiate(Prefab, SpawnMisiles(), Prefab.transform.rotation);
+       if (MyMisileController.IsGameOver == true)
+        {
+            Instantiate(Prefab, SpawnMisiles(), Prefab.transform.rotation);
+        }
+       
     }
 }
