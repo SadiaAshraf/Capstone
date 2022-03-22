@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MisileController : MonoBehaviour
 {
     public float speed = 3f;
    
-    private GameObject player;
+    public GameObject player;
     private Rigidbody2D EnemyRb;
+    public bool IsPlayerAlive = true;
     void Start()
     {
         EnemyRb = GetComponent<Rigidbody2D>();
@@ -17,9 +19,8 @@ public class MisileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Vector2 LookDirection = (player.transform.position - transform.position).normalized;
-        EnemyRb.AddForce(LookDirection * speed);
+        movement();
+       
         // transform.Translate(Vector2.up * Time.deltaTime * speed);
 
         //if (transform.position.x > 20)
@@ -42,14 +43,27 @@ public class MisileController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            IsPlayerAlive = false;
         }
         //Destroy(collision.gameObject);
         //Destroy(gameObject);
     }
+
+    public void  movement()
+    {
+        if (player != null)
+        {
+            Vector2 LookDirection = (player.transform.position - transform.position);
+            EnemyRb.AddForce(LookDirection * speed);
+           
+        }
+
+    }
+
 }
