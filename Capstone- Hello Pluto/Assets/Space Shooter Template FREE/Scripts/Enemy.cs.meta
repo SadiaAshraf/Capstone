@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: cb93e18709841574888ca778559f3bc2
-timeCreated: 1507886464
-licenseType: Store
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Projectile: {fileID: 2162953233133196518, guid: bdf05a0587c9e0746853f53452a285c6,
+      type: 3}
+  - destructionVFX: {instanceID: 0}
+  - hitEffect: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

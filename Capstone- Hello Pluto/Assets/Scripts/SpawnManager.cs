@@ -5,9 +5,11 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
 
-    public GameObject Prefab;
+    public GameObject Prefab; //enemyPrefab
     public float VerticalSpawn = 7;
     public float HorizontalSpawn = 20;
+
+   // public GameObject EnemyPrefab;
 
     public MisileController MyMisileController;
 

@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     float h;
     float v;
     public Vector2 speed = new Vector2(20, 20);
+
+    public GameObject projectilePrefab; // bulletprefab
+
     void Start()
     {
 
@@ -21,5 +24,11 @@ public class PlayerController : MonoBehaviour
         v = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
+
     }
 }

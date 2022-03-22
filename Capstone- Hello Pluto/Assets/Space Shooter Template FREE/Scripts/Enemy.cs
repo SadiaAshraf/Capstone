@@ -47,16 +47,16 @@ public class Enemy : MonoBehaviour {
     }    
 
     //if 'Enemy' collides 'Player', 'Player' gets the damage equal to projectile's damage value
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            if (Projectile.GetComponent<Projectile>() != null)
-                Player.instance.GetDamage(Projectile.GetComponent<Projectile>().damage);
-            else
-                Player.instance.GetDamage(1);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        if (Projectile.GetComponent<Projectile>() != null)
+    //            Player.instance.GetDamage(Projectile.GetComponent<Projectile>().damage);
+    //        else
+    //            Player.instance.GetDamage(1);
+    //    }
+    //}
 
     //method of destroying the 'Enemy'
     void Destruction()                           
