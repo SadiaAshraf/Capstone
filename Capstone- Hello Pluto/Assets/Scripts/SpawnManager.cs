@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject Prefab; //enemyPrefab
     //public float VerticalSpawn = 7;
-    public float HorizontalSpawn = 20;
+    public float HorizontalSpawn = 10;
 
    // public GameObject EnemyPrefab;
 
@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
  
     void Start()
     {
-        InvokeRepeating("SpawnElements", 2, 2);
+        InvokeRepeating("SpawnElements",2,2);
     }
 
     // Update is called once per frame
@@ -36,8 +36,9 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnElements()
     {
-       if (MyMisileController.IsGameOver == true)
+       if (!MyMisileController.IsGameOver)
         {
+            Debug.Log("" + !MyMisileController.IsGameOver);
             Instantiate(Prefab, SpawnMisiles(), Prefab.transform.rotation);
         }
        

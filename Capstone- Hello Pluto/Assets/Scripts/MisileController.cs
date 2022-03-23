@@ -49,10 +49,11 @@ public class MisileController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           // Destroy(collision.gameObject);
-           // Destroy(gameObject);
             IsPlayerAlive = false;
             IsGameOver = true;
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+           
         }
         
     }

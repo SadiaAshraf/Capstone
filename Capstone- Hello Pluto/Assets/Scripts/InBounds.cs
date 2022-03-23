@@ -14,22 +14,15 @@ public class InBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // if (transform.position.x > 20)
-       // {
-       //     transform.Translate (Vector2.left);
-       // }
-       // else if (transform.position.x > -20)
-       // {
-       //     transform.Translate (Vector2.right);
-       // }
-        
-       //else if (transform.position.y > 8)
-       // {
-       //     transform.Translate(Vector2.down);
-       // }
-       // else if(transform.position.y < - 7)
-       // {
-       //     transform.Translate(Vector2.up);
-       // }
+        if ((transform.position.x > 20) || (transform.position.y > 5))
+        {
+            Destroy(gameObject);
+        }
+        else if ((transform.position.x > -20) || (transform.position.y < -3))
+        {
+            Destroy(gameObject);
+        }
+
+       
     }
 }

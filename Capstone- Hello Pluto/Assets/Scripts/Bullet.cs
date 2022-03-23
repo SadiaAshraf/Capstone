@@ -20,6 +20,11 @@ public class Bullet : MonoBehaviour
 
         transform.Translate(Vector2.up * Time.deltaTime * 12);
 
+        if(transform.position.y > 6)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
