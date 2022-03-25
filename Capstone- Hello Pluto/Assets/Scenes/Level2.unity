@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d247a5bb9737c4c806cd853a19cb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienHealth: 0
 --- !u!212 &28578700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28578698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.23, y: -0.24, z: 0}
+  m_LocalPosition: {x: 5.23, y: -3.05, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -604,7 +605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917169642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.44, y: -4.58, z: 0}
+  m_LocalPosition: {x: -7.44, y: -4.35, z: 0}
   m_LocalScale: {x: 0.5875268, y: 0.5875268, z: 0.5875268}
   m_Children: []
   m_Father: {fileID: 0}
@@ -673,7 +674,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 30
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
@@ -874,6 +875,8 @@ GameObject:
   - component: {fileID: 1388014458}
   - component: {fileID: 1388014457}
   - component: {fileID: 1388014456}
+  - component: {fileID: 1388014460}
+  - component: {fileID: 1388014459}
   m_Layer: 0
   m_Name: Pro Alien
   m_TagString: Untagged
@@ -893,6 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fe53513ced859d4fba230dc89e6b4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienHealth: 0
 --- !u!212 &1388014457
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -953,12 +957,59 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388014455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.97, y: -3.81, z: 0}
+  m_LocalPosition: {x: 2.97, y: -3.27, z: 0}
   m_LocalScale: {x: 1.5006, y: 1.5006, z: 1.5006}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1388014459
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388014455}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &1388014460
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388014455}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1540721367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1088,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540721367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.32, y: -3.66, z: 0}
+  m_LocalPosition: {x: 8.32, y: -3.09, z: 0}
   m_LocalScale: {x: 0.6415987, y: 0.6415987, z: 0.6415987}
   m_Children:
   - {fileID: 781534648}
@@ -1127,6 +1178,7 @@ GameObject:
   - component: {fileID: 1547532532}
   - component: {fileID: 1547532535}
   - component: {fileID: 1547532536}
+  - component: {fileID: 1547532537}
   m_Layer: 0
   m_Name: ChotaAlien
   m_TagString: Enemy
@@ -1146,6 +1198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bbb769cf1214744bc05b64f2bb2a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienHealth: 0
 --- !u!212 &1547532533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1206,7 +1259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547532531}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.97, y: -4, z: 0}
+  m_LocalPosition: {x: 0.97, y: -3.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1259,6 +1312,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &1547532537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547532531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc108205050c5b4baa6070e216703bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alienHealth: 0
 --- !u!1001 &1702204844854710630
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1274,12 +1340,12 @@ PrefabInstance:
     - target: {fileID: 1702204844252811789, guid: 5d7ceb8a972049e41aa489af628e579d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.55
+      value: -7.58
       objectReference: {fileID: 0}
     - target: {fileID: 1702204844252811789, guid: 5d7ceb8a972049e41aa489af628e579d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.44
+      value: -3.65
       objectReference: {fileID: 0}
     - target: {fileID: 1702204844252811789, guid: 5d7ceb8a972049e41aa489af628e579d,
         type: 3}

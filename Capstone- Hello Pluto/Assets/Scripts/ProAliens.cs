@@ -15,4 +15,9 @@ public class ProAliens : Aliens
     {
         
     }
+
+    virtual public void Shoot()
+    {
+
+    }
 }

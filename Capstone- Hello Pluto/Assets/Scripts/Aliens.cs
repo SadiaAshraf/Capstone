@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Aliens : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int alienHealth;
     void Start()
     {
         
@@ -13,7 +13,7 @@ public class Aliens : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        jump();
+        Shoot();
     }
 
    virtual public void jump()
@@ -24,4 +24,20 @@ public class Aliens : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Debug.Log("Bullet collided with alien");
+            Destroy(gameObject);
+
+        }
+
+
+    }
+
+   virtual public void Shoot()
+    {
+
+    }
 }

@@ -27,7 +27,8 @@ public class AstroPlayer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(BulletPrefab, transform.position, BulletPrefab.transform.rotation);
+           // Instantiate(BulletPrefab, transform.position , BulletPrefab.transform.rotation);
+            Instantiate(BulletPrefab);
         }
 
         //if (Input.GetKey(KeyCode.LeftArrow))

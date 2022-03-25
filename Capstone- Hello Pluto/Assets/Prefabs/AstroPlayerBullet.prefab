@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1702204844252811789}
   - component: {fileID: 1702204844252811788}
-  - component: {fileID: 1702204844252811791}
   - component: {fileID: 1702204844252811786}
+  - component: {fileID: 740344685}
+  - component: {fileID: 740344681}
   m_Layer: 0
   m_Name: AstroPlayerBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702204844252811790}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7092995, w: 0.7049073}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7093001, w: 0.7049067}
   m_LocalPosition: {x: -7.55, y: -3.44, z: 0}
   m_LocalScale: {x: 0.14220558, y: 0.2662846, z: 0.18050745}
   m_Children: []
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1152134415
   m_SortingLayer: 3
-  m_SortingOrder: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d,
     type: 3}
   m_Color: {r: 0.9150943, g: 0.88427275, b: 0.18560876, a: 1}
@@ -85,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1702204844252811791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702204844252811790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc108205050c5b4baa6070e216703bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1702204844252811786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,3 +98,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3879fad4e6e5e6a468dfe383eeb68bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &740344685
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702204844252811790}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!70 &740344681
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702204844252811790}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.0000002, y: 2.0000007}
+  m_Direction: 0
