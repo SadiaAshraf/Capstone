@@ -15,6 +15,7 @@ TagManager:
   - PlayerRay
   - Rocket
   - Bullet
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -66,6 +67,9 @@ TagManager:
     locked: 0
   - name: Bonus
     uniqueID: 689362467
+    locked: 0
+  - name: walls
+    uniqueID: 735897445
     locked: 0
   - name: Player
     uniqueID: 2402381985
