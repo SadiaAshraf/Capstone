@@ -15,8 +15,8 @@ TagManager:
   - PlayerRay
   - Rocket
   - Bullet
-  - wall
   - Obstacle
+  - AlienBombs
   layers:
   - Default
   - TransparentFX
