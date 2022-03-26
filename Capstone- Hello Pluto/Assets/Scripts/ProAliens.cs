@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ProAliens : Aliens
 {
-    // Start is called before the first frame update
+    public GameObject bombPrefab;
     void Start()
     {
-        
+        // InvokeRepeating("shoot", 2, 1);
+
+        StartCoroutine("Shooter");
     }
 
     // Update is called once per frame
@@ -16,8 +18,18 @@ public class ProAliens : Aliens
         
     }
 
-    virtual public void Shoot()
+     public override void Shoot()
     {
+        
+    }
 
+    IEnumerator Shooter()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            Instantiate(bombPrefab, transform.position, bombPrefab.transform.rotation);
+            Debug.Log("Bomb is going");
+        }
     }
 }

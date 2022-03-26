@@ -6,16 +6,18 @@ public class Aliens : MonoBehaviour
 {
     public int alienHealth;
 
-    public GameObject bombPrefab;
+    
+    //public Transform Pos;
     void Start()
     {
-        InvokeRepeating("shoot", 2, 2);
+        
+       // Shoot();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Shoot();
+       
     }
 
    virtual public void jump()
@@ -38,8 +40,9 @@ public class Aliens : MonoBehaviour
 
     }
 
-   virtual public void Shoot()
+    public virtual void Shoot()
     {
-        Instantiate(bombPrefab);
+        //Instantiate(bombPrefab);
+       
     }
 }

@@ -15,4 +15,7 @@ public class AlienBombs : MonoBehaviour
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime); 
     }
+
+  
+
 }
