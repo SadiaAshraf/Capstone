@@ -16,6 +16,7 @@ TagManager:
   - Rocket
   - Bullet
   - wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -53,9 +54,6 @@ TagManager:
   - name: Background
     uniqueID: 1947543829
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Planets
     uniqueID: 4094135763
     locked: 0
@@ -76,4 +74,13 @@ TagManager:
     locked: 0
   - name: VFX
     uniqueID: 738997965
+    locked: 0
+  - name: Midground
+    uniqueID: 138615897
+    locked: 0
+  - name: Forground
+    uniqueID: 216089167
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

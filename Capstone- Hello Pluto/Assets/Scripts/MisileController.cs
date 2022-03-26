@@ -11,6 +11,8 @@ public class MisileController : MonoBehaviour
     private Rigidbody2D EnemyRb;
     public bool IsPlayerAlive = true;
     public bool IsGameOver = false;
+
+    
     void Start()
     {
         EnemyRb = GetComponent<Rigidbody2D>();

@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     private Vector2 SpawnMisiles()
-    {
+    { 
         float spawnX = Random.Range(-HorizontalSpawn, HorizontalSpawn);
         float spawnY = Random.Range(3, 5);
 

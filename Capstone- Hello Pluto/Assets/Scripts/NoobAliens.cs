@@ -33,11 +33,11 @@ public class NoobAliens : Aliens
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ((collision.gameObject.CompareTag("wall")) || (collision.gameObject.CompareTag("Player")))
+        if ((collision.gameObject.CompareTag("Obstacle")) || (collision.gameObject.CompareTag("Player")) ||  (collision.gameObject.CompareTag("Enemy")))
         {
             directionObj.x *= -1;
-            Debug.Log("collision pwith player detacted");
-            //Destroy(gameObject);
+            Debug.Log("collision with walls or player detacted");
+            
         }
     }
 }

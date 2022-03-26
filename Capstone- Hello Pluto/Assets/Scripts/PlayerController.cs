@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     float h;
     float v;
     public Vector2 speed = new Vector2(20, 20);
+    public int health =3;
 
     public GameObject projectilePrefab; // bulletprefab
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
+
 
     }
 }
