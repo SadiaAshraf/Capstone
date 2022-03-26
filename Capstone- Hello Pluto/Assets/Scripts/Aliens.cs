@@ -5,9 +5,11 @@ using UnityEngine;
 public class Aliens : MonoBehaviour
 {
     public int alienHealth;
+
+    public GameObject bombPrefab;
     void Start()
     {
-        
+        InvokeRepeating("shoot", 2, 2);
     }
 
     // Update is called once per frame
@@ -38,6 +40,6 @@ public class Aliens : MonoBehaviour
 
    virtual public void Shoot()
     {
-
+        Instantiate(bombPrefab);
     }
 }
