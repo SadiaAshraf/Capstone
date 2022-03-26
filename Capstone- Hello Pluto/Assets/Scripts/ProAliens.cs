@@ -5,6 +5,8 @@ using UnityEngine;
 public class ProAliens : Aliens
 {
     public GameObject bombPrefab;
+
+
     void Start()
     {
         // InvokeRepeating("shoot", 2, 1);
@@ -27,8 +29,9 @@ public class ProAliens : Aliens
     {
         while (true)
         {
+            Vector2 pos = new Vector2(transform.position.x -2,transform.position.y);
             yield return new WaitForSeconds(2);
-            Instantiate(bombPrefab, transform.position, bombPrefab.transform.rotation);
+            Instantiate(bombPrefab, pos, bombPrefab.transform.rotation);
             Debug.Log("Bomb is going");
         }
     }

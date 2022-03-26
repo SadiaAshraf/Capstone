@@ -8,12 +8,15 @@ public class AstroPlayer : MonoBehaviour
     float v;
     public Vector2 speed = new Vector2(20, 20);
     public int health = 3;
+    float jumpForce = 5f;
+
+    Rigidbody2D rb;
 
     public GameObject BulletPrefab; //astronaut bullet
 
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -42,7 +45,7 @@ public class AstroPlayer : MonoBehaviour
         //}
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            
+            jump(); 
         }
 
 
@@ -67,7 +70,10 @@ public class AstroPlayer : MonoBehaviour
         }
     }
 
-
+    void jump()
+    {
+        rb.velocity = Vector2.up * jumpForce;
+    }
 
      
 }
