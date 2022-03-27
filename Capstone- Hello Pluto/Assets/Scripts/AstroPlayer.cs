@@ -11,7 +11,7 @@ public class AstroPlayer : MonoBehaviour
     float jumpForce = 5f;
 
     Rigidbody2D rb;
-
+    bool OnGround = true;
     public GameObject BulletPrefab; //astronaut bullet
 
     
@@ -34,7 +34,7 @@ public class AstroPlayer : MonoBehaviour
        
 
        
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) )
         {
             jump(); 
         }
@@ -63,12 +63,13 @@ public class AstroPlayer : MonoBehaviour
 
     void jump()
     {
-        rb.velocity = Vector2.up * jumpForce;
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        OnGround = false;
     }
 
    void BulletSpawing()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) 
         {
             Vector2 pos = new Vector2(transform.position.x, transform.position.y+1);
             Instantiate(BulletPrefab, pos, BulletPrefab.transform.rotation);
