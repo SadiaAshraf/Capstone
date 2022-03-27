@@ -8,7 +8,7 @@ public class AstroPlayer : MonoBehaviour
     float v;
     public Vector2 speed = new Vector2(20, 20);
     public int health = 3;
-    float jumpForce = 5f;
+    float jumpForce = 1f;
 
     Rigidbody2D rb;
     bool OnGround = true;
@@ -34,9 +34,10 @@ public class AstroPlayer : MonoBehaviour
        
 
        
-        if (Input.GetKey(KeyCode.UpArrow) )
+        if (Input.GetKey(KeyCode.UpArrow) && OnGround )
         {
-            rb.velocity = new Vector2(rb.velocity.x,jumpForce); 
+            //rb.velocity = new Vector2(rb.velocity.x,jumpForce); 
+            jump();
         }
 
 
@@ -51,6 +52,11 @@ public class AstroPlayer : MonoBehaviour
             Debug.Log("Health = " + health);
             IsGameOver();
         }
+
+       if (collision.gameObject.CompareTag("Ground"))
+        {
+            OnGround = true;
+        }
     }
 
     public void IsGameOver()
@@ -61,13 +67,13 @@ public class AstroPlayer : MonoBehaviour
         }
     }
 
-    //void jump()
-    //{
-    //    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-    //    OnGround = false;
-    //}
+    void jump()
+    {
+        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        OnGround = false;
+    }
 
-   void BulletSpawing()
+    void BulletSpawing()
     {
         if (Input.GetKeyDown(KeyCode.Space)) 
         {

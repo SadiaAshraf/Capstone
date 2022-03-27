@@ -17,6 +17,9 @@ TagManager:
   - Bullet
   - Obstacle
   - AlienBombs
+  - P1
+  - P2
+  - Ground
   layers:
   - Default
   - TransparentFX

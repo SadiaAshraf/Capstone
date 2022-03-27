@@ -10,8 +10,8 @@ public class Spikes : MonoBehaviour
 
     AstroPlayer player;
 
-    public float amplitude = 0.5f;
-    public float frequency = 1f;
+    public float amplitude =100f;
+    public float frequency = 3f;
 
     Vector2 posOffset = new Vector2();
     Vector2 tempPos = new Vector2();
@@ -25,8 +25,8 @@ public class Spikes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 pos = new Vector2(transform.position.x , transform.position.y +3);
-        tempPos = posOffset + pos;
+       // Vector2 pos = new Vector2(transform.position.x , transform.position.y +3);
+        tempPos = posOffset;
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
 
         transform.position = tempPos;
