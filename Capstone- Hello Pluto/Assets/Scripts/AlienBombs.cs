@@ -8,7 +8,7 @@ public class AlienBombs : MonoBehaviour
     AstroPlayer player;
     void Start()
     {
-       player = GameObject.Find("AstroStay").GetComponent<AstroPlayer>();
+        player = GameObject.Find("AstroStay").GetComponent<AstroPlayer>();
     }
 
     // Update is called once per frame

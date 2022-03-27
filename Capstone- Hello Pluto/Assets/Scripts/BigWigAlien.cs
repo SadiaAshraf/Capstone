@@ -5,8 +5,8 @@ using UnityEngine;
 public class BigWigAlien : Aliens
 {
     Vector2 Pi = new Vector2(62, 0);  //initial and final positions
-    Vector2 Pf = new Vector2(82, 0);
-    float sp = 3; //speed
+    //Vector2 Pf = new Vector2(82, 0);
+    float sp = 1; //speed
     void Start()
     {
         
@@ -15,7 +15,20 @@ public class BigWigAlien : Aliens
     // Update is called once per frame
     void Update()
     {
-        //var fraction = (Mathf.Sin(Time.time * sp) + 1.0) / 2.0;
-        //transform.position = Vector2.Lerp(Pi, Pf, fraction);
+        transform.Translate(new Vector2(5f, 0f) * Pi * Time.deltaTime *sp);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("P1"))
+        {
+            Pi.x *= -1;
+
+        }
+        else if (collision.gameObject.CompareTag("P2"))
+        {
+            Pi.x *= -1;
+        }
     }
 }

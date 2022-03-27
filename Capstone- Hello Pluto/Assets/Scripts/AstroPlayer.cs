@@ -26,7 +26,7 @@ public class AstroPlayer : MonoBehaviour
     {
         h = Input.GetAxis("Horizontal");
 
-        //  v = Input.GetAxis("Vertical");
+        v = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
 
@@ -36,7 +36,7 @@ public class AstroPlayer : MonoBehaviour
        
         if (Input.GetKey(KeyCode.UpArrow) )
         {
-            jump(); 
+            rb.velocity = new Vector2(rb.velocity.x,jumpForce); 
         }
 
 
@@ -61,11 +61,11 @@ public class AstroPlayer : MonoBehaviour
         }
     }
 
-    void jump()
-    {
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        OnGround = false;
-    }
+    //void jump()
+    //{
+    //    rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    //    OnGround = false;
+    //}
 
    void BulletSpawing()
     {
