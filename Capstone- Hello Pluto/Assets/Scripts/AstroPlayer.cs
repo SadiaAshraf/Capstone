@@ -14,9 +14,11 @@ public class AstroPlayer : MonoBehaviour
 
     public GameObject BulletPrefab; //astronaut bullet
 
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+       //  InvokeRepeating("spawningBullets", 1, 1);
     }
 
     // Update is called once per frame
@@ -28,21 +30,10 @@ public class AstroPlayer : MonoBehaviour
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-           // Instantiate(BulletPrefab, transform.position , BulletPrefab.transform.rotation);
-            Instantiate(BulletPrefab);
-        }
+        BulletSpawing();
+       
 
-        //if (Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    transform.Translate(Vector2.left * speed * Time.deltaTime);
-        //}
-
-        //if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    transform.Translate(Vector2.right * speed * Time.deltaTime);
-        //}
+       
         if (Input.GetKey(KeyCode.UpArrow))
         {
             jump(); 
@@ -75,5 +66,14 @@ public class AstroPlayer : MonoBehaviour
         rb.velocity = Vector2.up * jumpForce;
     }
 
+   void BulletSpawing()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 pos = new Vector2(transform.position.x, transform.position.y+1);
+            Instantiate(BulletPrefab, pos, BulletPrefab.transform.rotation);
+            //Instantiate(BulletPrefab);
+        }
+    }
      
 }
