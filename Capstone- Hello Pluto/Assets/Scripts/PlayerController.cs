@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerController : MonoBehaviour
     {
 
     }
+
+
+    
 
     // Update is called once per frame
     void Update()
@@ -31,6 +35,14 @@ public class PlayerController : MonoBehaviour
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
 
+        //if (collision.gameObject.CompareTag("NextLevel"))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //    Debug.Log("Next level ");
+        //}
 
     }
+
+  
+  
 }

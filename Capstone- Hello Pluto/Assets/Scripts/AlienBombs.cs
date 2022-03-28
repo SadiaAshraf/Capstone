@@ -6,6 +6,8 @@ public class AlienBombs : MonoBehaviour
 {
     float speed = 5f;
     AstroPlayer player;
+
+    
     void Start()
     {
         player = GameObject.Find("AstroStay").GetComponent<AstroPlayer>();
@@ -29,8 +31,10 @@ public class AlienBombs : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            GameManager.Score +=  1;
             Destroy(gameObject);
             Destroy(collision.gameObject);
+             
         }
     }
 
