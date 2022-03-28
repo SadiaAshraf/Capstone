@@ -35,14 +35,17 @@ public class PlayerController : MonoBehaviour
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
 
-        //if (collision.gameObject.CompareTag("NextLevel"))
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //    Debug.Log("Next level ");
-        //}
+
 
     }
 
-  
-  
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("NextLevel"))
+        {
+           // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log("Next level ");
+        }
+    }
+
 }
