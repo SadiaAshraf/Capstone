@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Planet
   - Enemy
-  - Bonus
   - Projectile
   - Score
   - Health
@@ -22,6 +21,7 @@ TagManager:
   - Ground
   - PreviousLevel
   - NextLevel
+  - Element
   layers:
   - Default
   - TransparentFX

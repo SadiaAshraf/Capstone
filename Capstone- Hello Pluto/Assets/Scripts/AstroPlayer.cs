@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AstroPlayer : MonoBehaviour
 {
@@ -14,11 +15,12 @@ public class AstroPlayer : MonoBehaviour
     bool OnGround = true;
     public GameObject BulletPrefab; //astronaut bullet
 
-    
+    private Animator PlayerAnimator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
        //  InvokeRepeating("spawningBullets", 1, 1);
+       PlayerAnimator = GetComponent<Animator>();   
     }
 
     // Update is called once per frame
@@ -29,6 +31,21 @@ public class AstroPlayer : MonoBehaviour
         v = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
+
+        if (h > 0 || h < 0)
+        {
+            PlayerAnimator.SetBool("isWalk", true);
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            PlayerAnimator.SetBool("isWalk", false);
+            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        }
+
 
         BulletSpawing();
        
@@ -56,6 +73,19 @@ public class AstroPlayer : MonoBehaviour
        if (collision.gameObject.CompareTag("Ground"))
         {
             OnGround = true;
+        }
+
+        if (collision.gameObject.CompareTag("NextLevel"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log("Next level ");
+        }
+
+        else if (collision.gameObject.CompareTag("Coin"))
+        {
+            GameManager.Score += 1;
+            Debug.Log("Scores = " + GameManager.Score);
+            collision.gameObject.SetActive(false);
         }
     }
 
