@@ -16,6 +16,8 @@ public class AstroPlayer : MonoBehaviour
     public GameObject BulletPrefab; //astronaut bullet
 
     private Animator PlayerAnimator;
+
+    Vector3 endSize;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -57,7 +59,8 @@ public class AstroPlayer : MonoBehaviour
             jump();
         }
 
-
+        // endSize = new Vector3(0.25f, 0.25f, 0.25f);
+       // endSize = new Vector3(0f, 0f, 0f);
     }
 
 
@@ -67,8 +70,11 @@ public class AstroPlayer : MonoBehaviour
         {
             health -= 1;
             Debug.Log("Health = " + health);
-            transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
+            transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+            Debug.Log("Collison with chota alien");
             IsGameOver();
+
+
         }
 
        if (collision.gameObject.CompareTag("Ground"))
@@ -92,10 +98,18 @@ public class AstroPlayer : MonoBehaviour
 
     public void IsGameOver()
     {
-        if (health <= 0)
+        if (health <= 0) 
         {
             Debug.Log("Game Over");
+            Destroy(gameObject);
         }
+        //if ((health <= 0) || (transform.localScale == endSize))
+        //{
+        //    Debug.Log("Game Over");
+        //    Destroy(gameObject);
+        //}
+
+
     }
 
     void jump()
