@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InBounds : MonoBehaviour
 {
-    public Vector2 leftSide = new Vector2 (20,5);
+    
 
     void Start()
     {
@@ -14,15 +14,23 @@ public class InBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((transform.position.x > 20) || (transform.position.y > 5))
-        {
-            Destroy(gameObject);
-        }
-        else if ((transform.position.x > -20) || (transform.position.y < -3))
-        {
-            Destroy(gameObject);
-        }
+        //if (transform.position.x > 120) 
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else if (transform.position.x > -20) 
+        //{
+        //    Destroy(gameObject);
+        //}
 
        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("P1"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

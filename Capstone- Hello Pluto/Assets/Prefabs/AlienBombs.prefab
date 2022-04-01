@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7246602336582915853}
   - component: {fileID: 5060451268426953361}
   - component: {fileID: 7885058225619946034}
+  - component: {fileID: 8976258819841153791}
   m_Layer: 0
   m_Name: AlienBombs
   m_TagString: AlienBombs
@@ -135,3 +136,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &8976258819841153791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165012035166559881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e24545c35b4da904eb775f117278709f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

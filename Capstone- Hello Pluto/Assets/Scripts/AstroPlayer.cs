@@ -9,7 +9,7 @@ public class AstroPlayer : MonoBehaviour
     float v;
     public Vector2 speed = new Vector2(20, 20);
     public int health = 3;
-    float jumpForce = 1f;
+    float jumpForce =2.5f;
 
     Rigidbody2D rb;
     bool OnGround = true;
@@ -32,19 +32,19 @@ public class AstroPlayer : MonoBehaviour
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
 
-        if (h > 0 || h < 0)
-        {
-            PlayerAnimator.SetBool("isWalk", true);
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-        else
-        {
-            PlayerAnimator.SetBool("isWalk", false);
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
-            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //if (h > 0 || h < 0)
+        //{
+        //    PlayerAnimator.SetBool("isWalk", true);
+        //    rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        //    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        //}
+        //else
+        //{
+        //    PlayerAnimator.SetBool("isWalk", false);
+        //    rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        //    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        }
+        //}
 
 
         BulletSpawing();
@@ -67,6 +67,7 @@ public class AstroPlayer : MonoBehaviour
         {
             health -= 1;
             Debug.Log("Health = " + health);
+            transform.localScale -= new Vector3(0.5f, 0.5f, 0.5f);
             IsGameOver();
         }
 
@@ -107,7 +108,7 @@ public class AstroPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
-            Vector2 pos = new Vector2(transform.position.x, transform.position.y+1);
+            Vector2 pos = new Vector2(transform.position.x, transform.position.y);
             Instantiate(BulletPrefab, pos, BulletPrefab.transform.rotation);
             //Instantiate(BulletPrefab);
         }
