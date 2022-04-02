@@ -64,38 +64,7 @@ public class AstroPlayer : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-       if (collision.gameObject.name == "ChotaAlien" || collision.gameObject.name == "Spikes")
-        {
-            health -= 1;
-            Debug.Log("Health = " + health);
-            transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
-            Debug.Log("Collison with chota alien");
-            IsGameOver();
-
-
-        }
-
-       if (collision.gameObject.CompareTag("Ground"))
-        {
-            OnGround = true;
-        }
-
-        if (collision.gameObject.CompareTag("NextLevel"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("Next level ");
-        }
-
-        else if (collision.gameObject.CompareTag("Coin"))
-        {
-            GameManager.Score += 1;
-            Debug.Log("Scores = " + GameManager.Score);
-            collision.gameObject.SetActive(false);
-        }
-    }
-
+  
     public void IsGameOver()
     {
         if (health <= 0) 
@@ -127,5 +96,45 @@ public class AstroPlayer : MonoBehaviour
             //Instantiate(BulletPrefab);
         }
     }
-     
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "ChotaAlien" || collision.gameObject.name == "Spikes")
+        {
+            health -= 1;
+            Debug.Log("Health = " + health);
+            transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+            Debug.Log("Collison with chota alien");
+            IsGameOver();
+
+
+        }
+
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            OnGround = true;
+        }
+
+        if (collision.gameObject.CompareTag("NextLevel"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log("Next level ");
+        }
+
+        else if (collision.gameObject.CompareTag("Coin"))
+        {
+            GameManager.Score += 1;
+            Debug.Log("Scores = " + GameManager.Score);
+            collision.gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("Element"))
+        {
+            GameManager.Elements = GameManager.Elements + 1;
+            Debug.Log("Eelement Collected " + GameManager.Elements);
+            Debug.Log("Eelement Collected");
+            collision.gameObject.SetActive(false);
+        }
+    }
+
 }

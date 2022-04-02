@@ -36,7 +36,7 @@ public class AlienBombs : MonoBehaviour
             Destroy(collision.gameObject);
              
         }
-        else if ((collision.gameObject.CompareTag("Bullet"))
+        else if (collision.gameObject.CompareTag("Bullet"))
         {
             
         }

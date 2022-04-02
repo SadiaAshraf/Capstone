@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public static int Score;
     public Text ScoreCard;
 
+    public static int Elements;
+    public Text ElementsCard;
+
     void Start()
     {
        
@@ -17,6 +20,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
          ScoreCard.text = "Score = "+ Score;
+         ElementsCard.text = "Elements Collected = " + Elements;
+        
     }
 
 
