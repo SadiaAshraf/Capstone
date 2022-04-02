@@ -23,6 +23,7 @@ TagManager:
   - NextLevel
   - Element
   - Spikes
+  - Box
   layers:
   - Default
   - TransparentFX

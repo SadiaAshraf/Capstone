@@ -91,9 +91,28 @@ public class AstroPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
+
             Vector2 pos = new Vector2(transform.position.x, transform.position.y);
             Instantiate(BulletPrefab, pos, BulletPrefab.transform.rotation);
             //Instantiate(BulletPrefab);
+
+
+
+
+            //if(GameManager.Elements != 2)
+            //{
+            //    Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+            //    Instantiate(BulletPrefab, pos, BulletPrefab.transform.rotation);
+            //    //Instantiate(BulletPrefab);
+            //}
+            //else
+            //{
+
+            //    Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+            //    Instantiate(BulletPrefab, pos, BulletPrefab.transform.rotation(0,-45,0);
+            //    //Instantiate(BulletPrefab);
+            //}
+
         }
     }
 
@@ -135,6 +154,8 @@ public class AstroPlayer : MonoBehaviour
             Debug.Log("Eelement Collected");
             collision.gameObject.SetActive(false);
         }
+       
+
     }
 
 }
