@@ -66,7 +66,7 @@ public class AstroPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       if (collision.gameObject.name == "ChotaAlien")
+       if (collision.gameObject.name == "ChotaAlien" || collision.gameObject.name == "Spikes")
         {
             health -= 1;
             Debug.Log("Health = " + health);
