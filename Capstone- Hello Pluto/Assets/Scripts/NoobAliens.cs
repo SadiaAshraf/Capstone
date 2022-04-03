@@ -39,5 +39,10 @@ public class NoobAliens : Aliens
             Debug.Log("collision with walls or player detacted");
             
         }
+        else if (collision.gameObject.CompareTag("Spikes"))
+        {
+            directionObj.x *= -1;
+            Debug.Log("collision with walls or player detacted");
+        }
     }
 }

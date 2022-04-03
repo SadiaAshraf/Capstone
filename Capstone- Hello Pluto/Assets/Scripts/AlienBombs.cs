@@ -29,16 +29,32 @@ public class AlienBombs : MonoBehaviour
             Debug.Log("Alien bombs are working" );
         }
 
+        //if (collision.gameObject.CompareTag("Bullet"))
+        //{
+        //    GameManager.Score +=  1;
+        //    Destroy(gameObject);
+        //    Destroy(collision.gameObject);
+             
+        //}
+       
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            GameManager.Score +=  1;
+            GameManager.Score += 1;
             Destroy(gameObject);
             Destroy(collision.gameObject);
-             
+
         }
-        else if (collision.gameObject.CompareTag("Bullet"))
+
+        if (collision.gameObject.CompareTag("Player"))
         {
-            
+            Destroy(gameObject);
+            player.health -= 1;
+            Debug.Log("Health = " + player.health);
+            Debug.Log("Alien bombs are working");
         }
     }
 

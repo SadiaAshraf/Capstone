@@ -39,13 +39,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("NextLevel"))
+    //    {
+    //       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    //        Debug.Log("Next level 1 ");
+    //    }
+    //}
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("NextLevel"))
         {
-           // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            Debug.Log("Next level ");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Debug.Log("Next level trigger ");
+
         }
     }
-
 }

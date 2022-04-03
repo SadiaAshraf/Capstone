@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreCard: {fileID: 1879945818}
+  ElementsCard: {fileID: 0}
 --- !u!4 &177969674
 Transform:
   m_ObjectHideFlags: 0

@@ -18,11 +18,17 @@ public class AstroPlayer : MonoBehaviour
     private Animator PlayerAnimator;
 
     Vector3 endSize;
+
+    private Vector3 respawnPoint;
+    public GameObject Falldetector;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
        //  InvokeRepeating("spawningBullets", 1, 1);
        PlayerAnimator = GetComponent<Animator>();   
+        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -59,8 +65,10 @@ public class AstroPlayer : MonoBehaviour
             jump();
         }
 
+        
+
         // endSize = new Vector3(0.25f, 0.25f, 0.25f);
-       // endSize = new Vector3(0f, 0f, 0f);
+       endSize = new Vector3(0f, 0f, 0f);
     }
 
 
@@ -72,11 +80,11 @@ public class AstroPlayer : MonoBehaviour
             Debug.Log("Game Over");
             Destroy(gameObject);
         }
-        //if ((health <= 0) || (transform.localScale == endSize))
-        //{
-        //    Debug.Log("Game Over");
-        //    Destroy(gameObject);
-        //}
+       else if  (transform.localScale == endSize)
+        {
+           // Destroy(gameObject);
+            transform.position = respawnPoint;
+        }
 
 
     }

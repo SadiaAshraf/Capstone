@@ -31,16 +31,29 @@ public class Bullet : MonoBehaviour
     {
 
 
-    
+
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
-           
 
-           
+
+
         }
 
-        
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+            Debug.Log("Bullwt triger with enemy");
+
+
+        }
+
     }
 }

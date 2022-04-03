@@ -12,7 +12,7 @@ public class BigWigAlien : Aliens
     float health = 17;
     void Start()
     {
-        
+        StartCoroutine("DirectionChanger");
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class BigWigAlien : Aliens
     {
         while (!gameOver)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.9f);
             if (right)
             {
                 right = false;
@@ -42,7 +42,7 @@ public class BigWigAlien : Aliens
         transform.Translate(Vector2.right * speed * Time.deltaTime * movement);
 
         //transform.forward *= speed;
-        DirectionChanger();
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

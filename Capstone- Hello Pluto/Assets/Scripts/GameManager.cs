@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         ScoreCard.text = "Score = "+ Score;
-         ElementsCard.text = "Elements Collected = " + Elements;
+         //ScoreCard.text = "Score = "+ Score;
+         //ElementsCard.text = "Elements Collected = " + Elements;
         
     }
 
