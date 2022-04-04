@@ -37,6 +37,7 @@ public class NoobAliens : Aliens
         {
             directionObj.x *= -1;
             Debug.Log("collision with walls or player detacted");
+
             
         }
         else if (collision.gameObject.CompareTag("Spikes"))

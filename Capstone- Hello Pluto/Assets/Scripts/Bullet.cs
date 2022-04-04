@@ -37,8 +37,6 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
             Destroy(collision.gameObject);
 
-
-
         }
 
 

@@ -34,11 +34,41 @@ public class AstroPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        h = Input.GetAxis("Horizontal");
+       
+        if(Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+        }
+        else if   (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.Translate(Vector2.right * speed * Time.deltaTime);
+            }
 
         v = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
+
+
+        if (Input.GetKey(KeyCode.UpArrow) && OnGround)
+        {
+            //rb.velocity = new Vector2(rb.velocity.x,jumpForce); 
+            jump();
+        }
+
+        BulletSpawing();
+
+
+
+
+
+
+        // endSize = new Vector3(0.25f, 0.25f, 0.25f);
+        endSize = new Vector3(0f, 0f, 0f);
+
+        if(GameManager.Elements == 2)
+        {
+            transform.localScale = new Vector3(0.70f, 0.70f, 0.70f);
+        }
 
         //if (h > 0 || h < 0)
         //{
@@ -55,20 +85,7 @@ public class AstroPlayer : MonoBehaviour
         //}
 
 
-        BulletSpawing();
-       
 
-       
-        if (Input.GetKey(KeyCode.UpArrow) && OnGround )
-        {
-            //rb.velocity = new Vector2(rb.velocity.x,jumpForce); 
-            jump();
-        }
-
-        
-
-        // endSize = new Vector3(0.25f, 0.25f, 0.25f);
-       endSize = new Vector3(0f, 0f, 0f);
     }
 
 
@@ -78,7 +95,8 @@ public class AstroPlayer : MonoBehaviour
         if (health <= 0) 
         {
             Debug.Log("Game Over");
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
        else if  (transform.localScale == endSize)
         {
@@ -127,7 +145,7 @@ public class AstroPlayer : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "ChotaAlien" || collision.gameObject.name == "Spikes")
+        if (collision.gameObject.name =="ChotaAlien" || collision.gameObject.CompareTag("Spikes") )
         {
             health -= 1;
             Debug.Log("Health = " + health);
