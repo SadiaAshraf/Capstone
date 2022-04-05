@@ -35,29 +35,34 @@ public class AstroPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        //if( Input.GetKey(KeyCode.LeftArrow))
-        //{
-        //    transform.Translate(Vector2.left * speed * Time.deltaTime);
-        //    moo = 10;
-            
-        //}
-        //else if   (Input.GetKey(KeyCode.RightArrow))
-        //    {
-        //        transform.Translate(Vector2.right * speed * Time.deltaTime);
-        //    moo = 20;
-        //    }
-        //else
-        //{
-        //    moo = 0;
-        //}
 
-        h= Input.GetAxis("Horizontal");
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(Vector2.left * speed * Time.deltaTime);
+            moo = 10;
+            OnGround = true;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Translate(Vector2.right * speed * Time.deltaTime);
+            moo = 20;
+            OnGround = true;
+        }
+        else
+        {
+            moo = 0;
+            OnGround = true;
+        }
+
+        //h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
-
-        PlayerAnimator.SetFloat("Speed", h);
+        
+        
+        PlayerAnimator.SetFloat("Speed", moo);
+      //  PlayerAnimator.SetFloat("Speed", h);
+        OnGround = true;
 
         if (Input.GetKey(KeyCode.UpArrow) && OnGround)
         {
