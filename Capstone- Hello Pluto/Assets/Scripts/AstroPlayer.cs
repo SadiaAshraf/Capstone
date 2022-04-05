@@ -15,7 +15,8 @@ public class AstroPlayer : MonoBehaviour
     bool OnGround = true;
     public GameObject BulletPrefab; //astronaut bullet
 
-    private Animator PlayerAnimator;
+    public Animator PlayerAnimator;
+    public float moo;
 
     Vector3 endSize;
 
@@ -35,19 +36,28 @@ public class AstroPlayer : MonoBehaviour
     void Update()
     {
        
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
-        }
-        else if   (Input.GetKey(KeyCode.RightArrow))
-            {
-                transform.Translate(Vector2.right * speed * Time.deltaTime);
-            }
+        //if( Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    transform.Translate(Vector2.left * speed * Time.deltaTime);
+        //    moo = 10;
+            
+        //}
+        //else if   (Input.GetKey(KeyCode.RightArrow))
+        //    {
+        //        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        //    moo = 20;
+        //    }
+        //else
+        //{
+        //    moo = 0;
+        //}
 
+        h= Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(speed.x * h, speed.y * v);
         transform.Translate(movement * Time.deltaTime);
 
+        PlayerAnimator.SetFloat("Speed", h);
 
         if (Input.GetKey(KeyCode.UpArrow) && OnGround)
         {
@@ -111,6 +121,7 @@ public class AstroPlayer : MonoBehaviour
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         OnGround = false;
+        PlayerAnimator.SetBool("OnGround",OnGround);
     }
 
     void BulletSpawing()

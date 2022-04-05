@@ -3438,8 +3438,9 @@ GameObject:
   - component: {fileID: 917169644}
   - component: {fileID: 917169643}
   - component: {fileID: 917169647}
-  - component: {fileID: 917169645}
   - component: {fileID: 917169646}
+  - component: {fileID: 917169645}
+  - component: {fileID: 917169648}
   m_Layer: 0
   m_Name: AstroStay
   m_TagString: Player
@@ -3506,8 +3507,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 917169642}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.13, y: -2.64, z: 0}
-  m_LocalScale: {x: 0.7055415, y: 0.7055415, z: 0.7055415}
+  m_LocalPosition: {x: -13.89, y: -2.26, z: 0}
+  m_LocalScale: {x: 0.89584357, y: 0.7912302, z: 0.7055415}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -3528,6 +3529,8 @@ MonoBehaviour:
   health: 3
   BulletPrefab: {fileID: 1702204844252811790, guid: 5d7ceb8a972049e41aa489af628e579d,
     type: 3}
+  PlayerAnimator: {fileID: 917169648}
+  moo: 0
   Falldetector: {fileID: 0}
 --- !u!60 &917169646
 PolygonCollider2D:
@@ -3601,6 +3604,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &917169648
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917169642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14741c21aefaa2a45a0c1a229c8fdaca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &925409942
 GameObject:
   m_ObjectHideFlags: 0
@@ -4122,7 +4144,7 @@ GameObject:
   - component: {fileID: 1023256343}
   m_Layer: 0
   m_Name: Platform_01
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6361,7 +6383,7 @@ GameObject:
   - component: {fileID: 1407772727}
   m_Layer: 0
   m_Name: Platform_02
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
